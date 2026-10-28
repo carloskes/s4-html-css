@@ -21,6 +21,7 @@ Es una sola página (`index.html`) con una barra de navegación que lleva a cada
 11. Levantamiento de información (reunión con el cliente)
 12. Tecnologías que vamos a usar
 13. Tecnología para más adelante: API de ZKTeco
+14. Prototipo en Figma
 
 Al final hay un botón "Volver arriba".
 
