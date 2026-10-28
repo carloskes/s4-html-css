@@ -4,16 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard de nómina – NETTPLUS</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
-  <header id="inicio">
-    <img src="img/Logo.png" alt="Logo del proyecto" width="150">
-    <h1>Dashboard de nómina</h1>
-    <p>Acta de constitución del proyecto y levantamiento de información para <strong>NETTPLUS</strong></p>
+  <header class="encabezado" id="inicio">
+    <div class="contenedor cabecera">
+      <img class="logo" src="img/Logo.png" alt="Logo del proyecto" width="110">
+      <div>
+        <h1>Dashboard de nómina</h1>
+        <p>Acta de constitución del proyecto y levantamiento de información para <strong>NETTPLUS</strong></p>
+      </div>
+    </div>
 
-    <nav>
-      <ul>
+    <nav class="barra-navegacion">
+      <ul class="contenedor">
         <li><a href="#datos-generales">Datos generales</a></li>
         <li><a href="#proposito">Propósito</a></li>
         <li><a href="#alcance">Alcance</a></li>
@@ -28,8 +33,7 @@
       </ul>
     </nav>
   </header>
-  <hr>
-  <main>
+  <main class="contenedor">
 
     <section id="datos-generales">
       <h2>1. Datos generales del proyecto</h2>
@@ -46,7 +50,7 @@
     <section id="proposito">
       <h2>2. Propósito y justificación</h2>
 
-      <article>
+      <article class="tarjeta">
         <h3>2.1 Propósito del documento</h3>
         <p>
           Este documento formaliza el inicio del proyecto y sirve como referencia común para quienes participan en su
@@ -55,7 +59,7 @@
         </p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>2.2 Justificación del proyecto</h3>
         <p>
           NETTPLUS registra la asistencia de sus colaboradores en el software Z-biotime (ZKTeco), que entrega sus reportes en
@@ -65,7 +69,7 @@
         </p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>2.3 Breve descripción</h3>
         <p>
           Aplicación web, tipo dashboard, para el área de Recursos Humanos de NETTPLUS. Tomará los datos de asistencia de
@@ -116,31 +120,31 @@
     <section id="requisitos">
       <h2>5. Requisitos de alto nivel</h2>
 
-      <article>
+      <article class="tarjeta">
         <h3>R1. Obtener los registros de asistencia</h3>
         <p>Obtener los registros de Z-biotime, por conexión directa o por carga del Excel exportado.</p>
         <p><strong>Criterio de éxito:</strong> los registros llegan al dashboard sin copiarlos a mano y coinciden con los de Z-biotime.</p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>R2. Mostrar un resumen diario</h3>
         <p>Mostrar un resumen diario de los registros y la puntualidad de cada colaborador.</p>
         <p><strong>Criterio de éxito:</strong> Recursos Humanos ve cada día el resumen por colaborador y puede identificar quién llegó tarde, según las reglas acordadas con NETTPLUS.</p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>R3. Guardar un historial</h3>
         <p>Guardar un historial de los indicadores de nómina.</p>
         <p><strong>Criterio de éxito:</strong> se consultan indicadores de días y meses anteriores, por colaborador y por rango de fechas.</p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>R4. Generar el reporte mensual</h3>
         <p>Generar de forma automática el reporte mensual para el pago de nómina.</p>
         <p><strong>Criterio de éxito:</strong> el reporte se genera en el formato acordado y Recursos Humanos lo revisa y lo acepta.</p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>R5. Acceso según el rol</h3>
         <p>Dar acceso al dashboard según el rol de cada usuario.</p>
         <p><strong>Criterio de éxito:</strong> cada usuario ve solo la información que le corresponde. Los roles se definen con el cliente.</p>
@@ -178,7 +182,7 @@
     <section id="supuestos">
       <h2>8. Supuestos y restricciones</h2>
 
-      <article>
+      <article class="tarjeta">
         <h3>8.1 Supuestos</h3>
         <ul>
           <li>NETTPLUS entregará un Excel de ejemplo exportado de Z-biotime (con datos personales ocultos si lo prefiere), el último reporte mensual de nómina y las reglas de horarios y puntualidad.</li>
@@ -188,7 +192,7 @@
         </ul>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>8.2 Restricciones</h3>
         <ul>
           <li>El proyecto lee y muestra los datos de Z-biotime; no modifica los registros originales.</li>
@@ -243,7 +247,7 @@
       <h2>11. Levantamiento de información (reunión con el cliente)</h2>
       <p>Notas recogidas sobre cómo trabaja hoy NETTPLUS con la asistencia y la nómina.</p>
 
-      <article>
+      <article class="tarjeta">
         <h3>11.1 Situación actual</h3>
         <ul>
           <li>Hay una persona encargada de los atrasos, dentro del área de talento humano.</li>
@@ -255,7 +259,7 @@
         </ul>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>11.2 Marcación y dispositivos</h3>
         <ul>
           <li>La marcación se hace por aplicación y por dispositivo de la empresa.</li>
@@ -265,7 +269,7 @@
         </ul>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>11.3 Reportes que se usan hoy (todos en Excel)</h3>
         <dl>
           <dt>Reporte de un empleado</dt>
@@ -282,7 +286,7 @@
         </dl>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>11.4 Proceso actual de descarga</h3>
         <ol>
           <li>Ingresar a la aplicación web de ZKTeco.</li>
@@ -293,7 +297,7 @@
         </ol>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>11.5 Horarios y turnos</h3>
         <p>
           Existen horarios rotativos y por jornadas. El horario de cada colaborador es temporal; la asistencia se marca
@@ -301,7 +305,7 @@
         </p>
       </article>
 
-      <article>
+      <article class="tarjeta">
         <h3>11.6 Accesos e indicadores</h3>
         <ul>
           <li>Recursos Humanos y Contabilidad recibirían solo indicadores, no el dashboard completo.</li>
@@ -310,7 +314,7 @@
         </ul>
       </article>
 
-      <article id="pendientes">
+      <article class="tarjeta" id="pendientes">
         <h3>Pendientes por confirmar con el cliente</h3>
         <ul>
           <li>Formato del reporte de nómina.</li>
@@ -322,10 +326,10 @@
       </article>
     </section>
 
-      <section id="tecnologias">
+    <section id="tecnologias">
       <h2>12. Tecnologías que vamos a usar</h2>
 
-      <article id="lenguaje-framework">
+      <article class="tarjeta" id="lenguaje-framework">
         <h3>12.1 Lenguaje y framework</h3>
         <dl>
           <dt>Python</dt>
@@ -338,7 +342,7 @@
         </dl>
       </article>
 
-      <article id="base-de-datos">
+      <article class="tarjeta" id="base-de-datos">
         <h3>12.2 Base de datos</h3>
         <dl>
           <dt>PostgreSQL</dt>
@@ -347,7 +351,7 @@
         </dl>
       </article>
 
-      <article id="procesamiento-excel">
+      <article class="tarjeta" id="procesamiento-excel">
         <h3>12.3 Procesamiento de Excel</h3>
         <dl>
           <dt>openpyxl</dt>
@@ -360,7 +364,7 @@
         </dl>
       </article>
 
-      <article id="interfaz-web">
+      <article class="tarjeta" id="interfaz-web">
         <h3>12.4 Interfaz web</h3>
         <dl>
           <dt>HTML, CSS y JavaScript</dt>
@@ -385,7 +389,7 @@
         </dl>
       </article>
 
-      <article id="herramientas">
+      <article class="tarjeta" id="herramientas">
         <h3>12.5 Herramientas de desarrollo, diseño y pruebas</h3>
         <dl>
           <dt>Git y GitHub</dt>
@@ -410,7 +414,7 @@
         </dl>
       </article>
 
-      <article id="seguridad-publicacion">
+      <article class="tarjeta" id="seguridad-publicacion">
         <h3>12.6 Seguridad y publicación <mark>(por definir)</mark></h3>
         <p>
           Estas dependen de dónde se aloje la aplicación, que todavía no sabemos. Lo que sigue es lo que usaríamos en
@@ -443,3 +447,11 @@
     </section>
 
   </main>
+
+  <footer class="pie">
+    <p>Dashboard de nómina · NETTPLUS · Ingeniería Web</p>
+    <a class="boton" href="#inicio">Volver arriba</a>
+  </footer>
+
+</body>
+</html>
