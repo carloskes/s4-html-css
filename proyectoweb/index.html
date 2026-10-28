@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de nómina – NETTPLUS</title>
+</head>
+<body>
+
+  <header id="inicio">
+    <img src="img/Logo.png" alt="Logo del proyecto" width="150">
+    <h1>Dashboard de nómina</h1>
+    <p>Acta de constitución del proyecto y levantamiento de información para <strong>NETTPLUS</strong></p>
+
+    <nav>
+      <ul>
+        <li><a href="#datos-generales">Datos generales</a></li>
+        <li><a href="#proposito">Propósito</a></li>
+        <li><a href="#alcance">Alcance</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#requisitos">Requisitos</a></li>
+        <li><a href="#hitos">Hitos</a></li>
+        <li><a href="#riesgos">Riesgos</a></li>
+        <li><a href="#supuestos">Supuestos y restricciones</a></li>
+        <li><a href="#costos">Costos</a></li>
+        <li><a href="#interesados">Interesados</a></li>
+        <li><a href="#levantamiento">Levantamiento de información</a></li>
+      </ul>
+    </nav>
+  </header>
+  <hr>
+  <main>
+
+    <section id="datos-generales">
+      <h2>1. Datos generales del proyecto</h2>
+      <ul>
+        <li><strong>Empresa:</strong> NETTPLUS</li>
+        <li><strong>Nombre del proyecto:</strong> Dashboard de nómina</li>
+        <li><strong>Patrocinador:</strong> <mark>Por confirmar</mark> (responsable del proyecto en NETTPLUS)</li>
+        <li><strong>Gerente de proyecto:</strong> <mark>Por designar</mark></li>
+        <li><strong>Equipo de desarrollo:</strong> Carlos Correa, Emilio Cueva y Jorge Díaz</li>
+        <li><strong>Estado del proyecto:</strong> Borrador (<time datetime="2026-10-21">21 de octubre de 2026</time>)</li>
+      </ul>
+    </section>
+
+    <section id="proposito">
+      <h2>2. Propósito y justificación</h2>
+
+      <article>
+        <h3>2.1 Propósito del documento</h3>
+        <p>
+          Este documento formaliza el inicio del proyecto y sirve como referencia común para quienes participan en su
+          planificación y desarrollo. Es una primera versión, basada en la información que entregó el cliente en el reto;
+          varios puntos se ajustarán cuando NETTPLUS los confirme.
+        </p>
+      </article>
+
+      <article>
+        <h3>2.2 Justificación del proyecto</h3>
+        <p>
+          NETTPLUS registra la asistencia de sus colaboradores en el software Z-biotime (ZKTeco), que entrega sus reportes en
+          Excel. Con esos datos, el Asistente de Recursos Humanos revisa cada día el comportamiento de cada colaborador,
+          sobre todo su puntualidad. Es un trabajo repetitivo que le quita tiempo, y el reporte mensual para pagar la
+          nómina todavía no se genera de forma automática.
+        </p>
+      </article>
+
+      <article>
+        <h3>2.3 Breve descripción</h3>
+        <p>
+          Aplicación web, tipo dashboard, para el área de Recursos Humanos de NETTPLUS. Tomará los datos de asistencia de
+          Z-biotime, calculará los indicadores de puntualidad y los mostrará en un resumen diario por colaborador. También
+          guardará un historial y generará el reporte mensual para la nómina. No cambia la forma en que se registra la
+          asistencia en Z-biotime.
+        </p>
+        <p>
+          Los datos llegarán por conexión directa o por carga del Excel exportado, según lo que permita la versión de
+          Z-biotime (ver <a href="#pendientes">pendientes por confirmar</a>).
+        </p>
+      </article>
+    </section>
+
+    <section id="alcance">
+      <h2>3. Alcance preliminar</h2>
+      <p>
+        El proyecto comprende entender el proceso actual, diseñar y construir la solución, probarla y ponerla en uso.
+        Los detalles de cada función están en los <a href="#requisitos">requisitos</a>.
+      </p>
+      <dl>
+        <dt>Análisis y definición del proceso</dt>
+        <dd>Revisar cómo se hace hoy la revisión diaria y el reporte mensual, y acordar indicadores y reglas con NETTPLUS.</dd>
+
+        <dt>Obtención de datos</dt>
+        <dd>Conexión con Z-biotime o carga del Excel, según lo que resulte viable.</dd>
+
+        <dt>Resumen, historial y reporte</dt>
+        <dd>Indicadores diarios por colaborador, historial consultable y reporte mensual para nómina.</dd>
+
+        <dt>Acceso de usuarios</dt>
+        <dd>Ingreso con perfiles según quién use el sistema.</dd>
+
+        <dt>Pruebas y puesta en marcha</dt>
+        <dd>Pruebas con datos de Z-biotime, capacitación y acompañamiento al inicio.</dd>
+      </dl>
+    </section>
+
+    <section id="beneficios">
+      <h2>4. Resultados esperados y beneficios</h2>
+      <ul>
+        <li><strong>Menos carga operativa:</strong> el Asistente de Recursos Humanos ya no revisaría los registros uno por uno cada día. La meta en horas ahorradas se acordará con el cliente.</li>
+        <li><strong>Información disponible:</strong> el resumen diario y el reporte mensual saldrían de los mismos datos, sin armarlos a mano.</li>
+        <li><strong>Historial:</strong> los indicadores quedarían guardados para consultarlos y compararlos después.</li>
+      </ul>
+    </section>
+
+    <section id="requisitos">
+      <h2>5. Requisitos de alto nivel</h2>
+
+      <article>
+        <h3>R1. Obtener los registros de asistencia</h3>
+        <p>Obtener los registros de Z-biotime, por conexión directa o por carga del Excel exportado.</p>
+        <p><strong>Criterio de éxito:</strong> los registros llegan al dashboard sin copiarlos a mano y coinciden con los de Z-biotime.</p>
+      </article>
+
+      <article>
+        <h3>R2. Mostrar un resumen diario</h3>
+        <p>Mostrar un resumen diario de los registros y la puntualidad de cada colaborador.</p>
+        <p><strong>Criterio de éxito:</strong> Recursos Humanos ve cada día el resumen por colaborador y puede identificar quién llegó tarde, según las reglas acordadas con NETTPLUS.</p>
+      </article>
+
+      <article>
+        <h3>R3. Guardar un historial</h3>
+        <p>Guardar un historial de los indicadores de nómina.</p>
+        <p><strong>Criterio de éxito:</strong> se consultan indicadores de días y meses anteriores, por colaborador y por rango de fechas.</p>
+      </article>
+
+      <article>
+        <h3>R4. Generar el reporte mensual</h3>
+        <p>Generar de forma automática el reporte mensual para el pago de nómina.</p>
+        <p><strong>Criterio de éxito:</strong> el reporte se genera en el formato acordado y Recursos Humanos lo revisa y lo acepta.</p>
+      </article>
+
+      <article>
+        <h3>R5. Acceso según el rol</h3>
+        <p>Dar acceso al dashboard según el rol de cada usuario.</p>
+        <p><strong>Criterio de éxito:</strong> cada usuario ve solo la información que le corresponde. Los roles se definen con el cliente.</p>
+      </article>
+    </section>
+
+    <section id="hitos">
+      <h2>6. Hitos</h2>
+      <ol>
+        <li>Levantamiento y validación del proceso actual y de los puntos pendientes.</li>
+        <li>Aprobación de los requisitos y del prototipo del dashboard.</li>
+        <li>Desarrollo de la carga o conexión de datos y de los cálculos, con pruebas funcionales.</li>
+        <li>Prueba con los datos de un mes completo, comparando el resultado con el reporte que se usa hoy.</li>
+        <li>Capacitación, puesta en marcha y cierre.</li>
+      </ol>
+      <p>
+        Las fechas se estimarán en la planificación. El proyecto debe terminar dentro del período de la asignatura:
+        <time datetime="2026-10">octubre de 2026</time> a <time datetime="2027-02">febrero de 2027</time>.
+      </p>
+    </section>
+
+    <section id="riesgos">
+      <h2>7. Riesgos</h2>
+      <p>Los riesgos se actualizarán conforme avance el proyecto. De manera preliminar:</p>
+      <ul>
+        <li>Z-biotime podría no permitir la conexión directa (versión, licencia o acceso al servidor). Si no se puede, se usa la carga del Excel.</li>
+        <li>El formato del Excel puede cambiar según el reporte o la versión y dañar la carga. Hay que acordar un formato y validar las columnas al cargar.</li>
+        <li>Las reglas de puntualidad (tolerancia, horarios, turnos, permisos) no están definidas y pueden cambiar los cálculos. Hay que documentarlas y validarlas con Recursos Humanos.</li>
+        <li>Los datos de origen pueden tener marcaciones faltantes o repetidas. Hay que definir cómo se muestran y cuál es el dato oficial.</li>
+        <li>Los datos de asistencia y pago son personales. Hay que definir quién puede verlos y dónde se guardan.</li>
+        <li>Si NETTPLUS tarda en entregar el Excel de ejemplo, las reglas y los accesos, el desarrollo se retrasa.</li>
+      </ul>
+    </section>
+
+    <section id="supuestos">
+      <h2>8. Supuestos y restricciones</h2>
+
+      <article>
+        <h3>8.1 Supuestos</h3>
+        <ul>
+          <li>NETTPLUS entregará un Excel de ejemplo exportado de Z-biotime (con datos personales ocultos si lo prefiere), el último reporte mensual de nómina y las reglas de horarios y puntualidad.</li>
+          <li>NETTPLUS facilitará el contacto de quien administra Z-biotime y de los futuros usuarios, para validar los requisitos.</li>
+          <li>Z-biotime seguirá siendo el sistema donde se registran las marcaciones. Por el nombre, sería <cite>ZKBio Time</cite> de ZKTeco, <mark>algo que hay que confirmar</mark>.</li>
+          <li>Se plantea una aplicación web porque el cliente pidió un dashboard. El reto menciona «software, app, robot o IA» sin precisar cuál; si el cliente espera inteligencia artificial, se definirá qué debe hacer.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>8.2 Restricciones</h3>
+        <ul>
+          <li>El proyecto lee y muestra los datos de Z-biotime; no modifica los registros originales.</li>
+          <li>Quedan fuera del alcance inicial reemplazar Z-biotime, manejar los relojes biométricos y otros procesos de recursos humanos (selección, vacaciones, evaluaciones).</li>
+          <li>El cálculo de pagos (sueldos, descuentos, horas extra en dinero) no se incluye hasta que el cliente confirme si lo espera. Por ahora, el reporte mensual entrega la información de asistencia necesaria para pagar.</li>
+          <li>El proyecto debe terminarse dentro del período de la asignatura.</li>
+          <li>Dónde se aloja la aplicación, quién paga ese servicio y si los datos pueden estar fuera de la empresa están por definir.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="costos">
+      <h2>9. Costos preliminares</h2>
+      <p>
+        Todavía no hay una estimación. Por ser un proyecto de la asignatura, se asume que el desarrollo no tiene costo
+        para NETTPLUS. Los costos recurrentes (servidor, dominio y licencias) dependen de dónde se aloje la aplicación y
+        de lo que NETTPLUS ya tenga contratado; se definirán en la planificación, junto con el presupuesto que el cliente
+        pueda destinar.
+      </p>
+    </section>
+
+    <section id="interesados">
+      <h2>10. Interesados principales</h2>
+      <dl>
+        <dt>Responsable del proyecto en NETTPLUS (patrocinador, nombre por confirmar)</dt>
+        <dd>Autoriza el proyecto, aprueba lo que se entrega y define las prioridades.</dd>
+
+        <dt>Asistente de Recursos Humanos</dt>
+        <dd>Hoy hace la revisión diaria. Será el usuario principal y valida los resúmenes e indicadores.</dd>
+
+        <dt>Jefatura de Recursos Humanos o gerencia (por confirmar)</dt>
+        <dd>Consulta los indicadores y recibe el reporte mensual.</dd>
+
+        <dt>Contabilidad o quien paga la nómina (por confirmar)</dt>
+        <dd>Usa el reporte mensual para el pago.</dd>
+
+        <dt>Desarrollo Organizacional</dt>
+        <dd>Usuario del sistema, según lo indicado en la reunión con el cliente.</dd>
+
+        <dt>Administrador de Z-biotime (TI o proveedor, por confirmar)</dt>
+        <dd>Confirma qué formas de obtener los datos permite el sistema y da los accesos.</dd>
+
+        <dt>Colaboradores de NETTPLUS</dt>
+        <dd>Marcan su asistencia en Z-biotime; sus datos aparecen en el dashboard.</dd>
+
+        <dt>Equipo de desarrollo: Carlos Correa, Emilio Cueva y Jorge Díaz</dt>
+        <dd>Levantan los requisitos, diseñan, desarrollan, prueban y entregan.</dd>
+      </dl>
+    </section>
+
+    <section id="levantamiento">
+      <h2>11. Levantamiento de información (reunión con el cliente)</h2>
+      <p>Notas recogidas sobre cómo trabaja hoy NETTPLUS con la asistencia y la nómina.</p>
+
+      <article>
+        <h3>11.1 Situación actual</h3>
+        <ul>
+          <li>Hay una persona encargada de los atrasos, dentro del área de talento humano.</li>
+          <li>La plataforma registra las marcaciones, pero <strong>no entrega los resúmenes</strong> que se necesitan: conteo de horas, ausentismos, aprobaciones, personas atrasadas y permisos o vacaciones.</li>
+          <li>La revisión se hace a diario y el pago una vez al mes, gestionado por talento humano.</li>
+          <li>La nómina se digita; falta preguntar el formato que usan.</li>
+          <li>Por ahora <strong>no hay API</strong> ni carga diaria constante de datos.</li>
+          <li>Se menciona la base «Robor App» y la necesidad de información en la plataforma sobre atrasos.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>11.2 Marcación y dispositivos</h3>
+        <ul>
+          <li>La marcación se hace por aplicación y por dispositivo de la empresa.</li>
+          <li>La empresa matriz marca con biometría.</li>
+          <li>Turnos de la noche (23:00): la base se carga al día siguiente.</li>
+          <li>No se marca la hora de almuerzo.</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>11.3 Reportes que se usan hoy (todos en Excel)</h3>
+        <dl>
+          <dt>Reporte de un empleado</dt>
+          <dd>Fecha, hora, marcación y por dónde se marcó.</dd>
+
+          <dt>Reporte general de colaboradores</dt>
+          <dd>Horas de entrada y salida (no incluye almuerzo).</dd>
+
+          <dt>Reporte de permisos</dt>
+          <dd>ID, nombre, apellido, estado, departamento y motivo. Se extrae en un Excel separado del general.</dd>
+
+          <dt>Horas extra</dt>
+          <dd>Flujo similar: se marcan con un motivo y pueden ser aprobadas o desaprobadas.</dd>
+        </dl>
+      </article>
+
+      <article>
+        <h3>11.4 Proceso actual de descarga</h3>
+        <ol>
+          <li>Ingresar a la aplicación web de ZKTeco.</li>
+          <li>Ir a asistencia y luego a reportes de marcaciones.</li>
+          <li>Seleccionar a todos los colaboradores de la empresa.</li>
+          <li>Elegir las fechas del reporte (la fecha de corte es del 20 al 21).</li>
+          <li>Descargar el Excel con el detalle: cada página corresponde a un colaborador.</li>
+        </ol>
+      </article>
+
+      <article>
+        <h3>11.5 Horarios y turnos</h3>
+        <p>
+          Existen horarios rotativos y por jornadas. El horario de cada colaborador es temporal; la asistencia se marca
+          por calendario y se muestran los turnos. Se puede ver por persona si su horario es rotativo o fijo.
+        </p>
+      </article>
+
+      <article>
+        <h3>11.6 Accesos e indicadores</h3>
+        <ul>
+          <li>Recursos Humanos y Contabilidad recibirían solo indicadores, no el dashboard completo.</li>
+          <li>Cada persona tiene sus accesos y puede revisar su información.</li>
+          <li>Se pidió un indicador de rotación de personal: índice general de la empresa y por área.</li>
+        </ul>
+      </article>
+
+      <article id="pendientes">
+        <h3>Pendientes por confirmar con el cliente</h3>
+        <ul>
+          <li>Formato del reporte de nómina.</li>
+          <li>Colores corporativos (el cliente los hará llegar).</li>
+          <li>Si habrá conexión por API o solo carga del Excel.</li>
+          <li>Indicadores clave y reglas de puntualidad.</li>
+          <li>Si el sistema debe calcular valores en dinero o solo entregar la información de asistencia.</li>
+        </ul>
+      </article>
+    </section>
+
+      <section id="tecnologias">
+      <h2>12. Tecnologías que vamos a usar</h2>
+
+      <article id="lenguaje-framework">
+        <h3>12.1 Lenguaje y framework</h3>
+        <dl>
+          <dt>Python</dt>
+          <dd><strong>Qué es:</strong> lenguaje de programación. Se lee fácil y tiene muchas librerías para trabajar con datos y archivos.</dd>
+          <dd><strong>Para qué la usamos:</strong> es el lenguaje de todo el sistema por dentro: leer los Excel, calcular horas trabajadas, atrasos y ausentismos, y armar los reportes (RF11 a RF18).</dd>
+
+          <dt>Django</dt>
+          <dd><strong>Qué es:</strong> framework web de Python. Ya trae inicio de sesión, usuarios y permisos, formularios, plantillas y un panel de administración.</dd>
+          <dd><strong>Para qué la usamos:</strong> usuarios y roles (RF01 a RF03). Los permisos se revisan en el servidor (RNF03) y las contraseñas se guardan con hash y sal (RNF01). También sirve para que parámetros como la tolerancia de atrasos y el día de corte se cambien sin tocar el código (RF13). La bitácora de auditoría (RNF05) la hacemos como un modelo propio.</dd>
+        </dl>
+      </article>
+
+      <article id="base-de-datos">
+        <h3>12.2 Base de datos</h3>
+        <dl>
+          <dt>PostgreSQL</dt>
+          <dd><strong>Qué es:</strong> sistema de bases de datos relacional, gratuito y de código abierto. Django trabaja con él directamente.</dd>
+          <dd><strong>Para qué la usamos:</strong> guarda colaboradores, marcaciones originales, horarios, permisos, horas extra, usuarios, bitácora e historial de cargas. Sus restricciones de unicidad evitan marcaciones duplicadas (RF07) y las marcaciones se guardan tal como llegan (RNF18). Los respaldos diarios se hacen con sus propias herramientas (RNF17).</dd>
+        </dl>
+      </article>
+
+      <article id="procesamiento-excel">
+        <h3>12.3 Procesamiento de Excel</h3>
+        <dl>
+          <dt>openpyxl</dt>
+          <dd><strong>Qué es:</strong> librería de Python para leer y escribir archivos .xlsx.</dd>
+          <dd><strong>Para qué la usamos:</strong> leer los archivos de ZKTeco identificando las columnas por su nombre y no por su posición (RNF14), y generar los reportes en Excel (RF24).</dd>
+
+          <dt>pandas</dt>
+          <dd><strong>Qué es:</strong> librería de Python para trabajar con tablas de datos.</dd>
+          <dd><strong>Para qué la usamos:</strong> ordenar y sumar las marcaciones por colaborador y por día, y calcular los totales de los reportes. Ayuda a procesar un archivo de unas 60 000 marcaciones en menos de 2 minutos (RNF12).</dd>
+        </dl>
+      </article>
+
+      <article id="interfaz-web">
+        <h3>12.4 Interfaz web</h3>
+        <dl>
+          <dt>HTML, CSS y JavaScript</dt>
+          <dd><strong>Qué es:</strong> los tres lenguajes base de cualquier página web: estructura, estilo y comportamiento.</dd>
+          <dd><strong>Para qué la usamos:</strong> las pantallas del sistema, armadas con las plantillas de Django.</dd>
+
+          <dt>Bootstrap</dt>
+          <dd><strong>Qué es:</strong> librería de estilos para páginas que se adaptan al tamaño de la pantalla.</dd>
+          <dd><strong>Para qué la usamos:</strong> que la aplicación se vea bien desde 1366 × 768 y en tablet (RNF13), con tablas y formularios ordenados. También para aplicar los colores corporativos de NETTPLUS cuando los entregue (RNF08).</dd>
+
+          <dt>Chart.js</dt>
+          <dd><strong>Qué es:</strong> librería de JavaScript para hacer gráficos.</dd>
+          <dd><strong>Para qué la usamos:</strong> los gráficos del dashboard (horas, atrasos, ausentismos). Cada gráfico va con su tabla de datos para no depender solo del color (RNF10).</dd>
+
+          <dt>FullCalendar</dt>
+          <dd><strong>Qué es:</strong> librería de JavaScript para mostrar calendarios.</dd>
+          <dd><strong>Para qué la usamos:</strong> el calendario de turnos fijos y rotativos de cada colaborador (RF10).</dd>
+
+          <dt>Chrome, Edge y Firefox</dt>
+          <dd><strong>Qué es:</strong> los navegadores con los que se abre la aplicación.</dd>
+          <dd><strong>Para qué la usamos:</strong> probamos en las dos últimas versiones estables de cada uno (RNF13).</dd>
+        </dl>
+      </article>
+
+      <article id="herramientas">
+        <h3>12.5 Herramientas de desarrollo, diseño y pruebas</h3>
+        <dl>
+          <dt>Git y GitHub</dt>
+          <dd><strong>Qué es:</strong> Git es un sistema de control de versiones. GitHub guarda el repositorio en la nube.</dd>
+          <dd><strong>Para qué la usamos:</strong> trabajar los tres sobre el mismo código sin pisarnos y guardar el historial de cambios.</dd>
+
+          <dt>Figma</dt>
+          <dd><strong>Qué es:</strong> herramienta para diseñar pantallas de una aplicación.</dd>
+          <dd><strong>Para qué la usamos:</strong> hacer el prototipo del dashboard para que NETTPLUS lo apruebe antes de programar.</dd>
+
+          <dt>Enterprise Architect</dt>
+          <dd><strong>Qué es:</strong> herramienta para hacer diagramas de modelado como los UML.</dd>
+          <dd><strong>Para qué la usamos:</strong> los diagramas del proyecto, como el diagrama de contexto que pide la plantilla de visión y alcance.</dd>
+
+          <dt>Pruebas de Django</dt>
+          <dd><strong>Qué es:</strong> sistema de pruebas automáticas que viene incluido en Django.</dd>
+          <dd><strong>Para qué la usamos:</strong> comprobar que los cálculos de horas, atrasos y ausentismos dan lo mismo que un cálculo manual en Excel (objetivos OB-02 y OB-04).</dd>
+
+          <dt>Lighthouse</dt>
+          <dd><strong>Qué es:</strong> herramienta de Chrome que revisa accesibilidad y rendimiento de una página.</dd>
+          <dd><strong>Para qué la usamos:</strong> revisar el contraste de los textos y el uso con teclado (RNF09).</dd>
+        </dl>
+      </article>
+
+      <article id="seguridad-publicacion">
+        <h3>12.6 Seguridad y publicación <mark>(por definir)</mark></h3>
+        <p>
+          Estas dependen de dónde se aloje la aplicación, que todavía no sabemos. Lo que sigue es lo que usaríamos en
+          principio:
+        </p>
+        <dl>
+          <dt>HTTPS (TLS 1.2 o superior)</dt>
+          <dd><strong>Qué es:</strong> conexión cifrada entre el navegador y el servidor.</dd>
+          <dd><strong>Para qué la usamos:</strong> toda la comunicación del sistema va cifrada (RNF02).</dd>
+
+          <dt>Docker</dt>
+          <dd><strong>Qué es:</strong> herramienta que empaqueta la aplicación con todo lo que necesita para que funcione igual en cualquier servidor.</dd>
+          <dd><strong>Para qué la usamos:</strong> instalar la aplicación y la base de datos en el servidor de NETTPLUS o en la nube.</dd>
+
+          <dt>Gunicorn y Nginx</dt>
+          <dd><strong>Qué es:</strong> Gunicorn ejecuta la aplicación Django y Nginx recibe las visitas y las dirige a ella.</dd>
+          <dd><strong>Para qué la usamos:</strong> publicar la aplicación en un servidor, con la disponibilidad que se acuerde (RNF16).</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section id="tecnologia-futura">
+      <h2>13. Tecnología para más adelante: API de ZKTeco</h2>
+      <p>
+        Si NETTPLUS habilita la API de ZKTeco, usaríamos la librería <strong>requests</strong> de Python para pedir los
+        datos y una tarea programada (por ejemplo <strong>cron</strong>) para hacerlo todos los días. Para probar la
+        conexión sirve <strong>Postman</strong>. Como la carga de datos está separada del cálculo (RNF15), cambiar de
+        Excel a API no modifica las reglas de cálculo. Esto queda fuera de la primera versión.
+      </p>
+    </section>
+
+  </main>
